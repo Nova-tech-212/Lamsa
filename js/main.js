@@ -248,4 +248,47 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 800);
     });
   }
+
+  /* ==========================================================================
+     10. SOCIAL PROOF COUNTER ANIMATION
+     ========================================================================== */
+  const proofNumbers = document.querySelectorAll('.proof-number');
+  if (proofNumbers.length) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseFloat(el.dataset.target);
+          const isDecimal = target % 1 !== 0;
+          const duration = 2000;
+          const start = performance.now();
+
+          const animate = (now) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = eased * target;
+            el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString('en');
+            if (progress < 1) requestAnimationFrame(animate);
+            else el.textContent = isDecimal ? target.toFixed(1) : target.toLocaleString('en');
+          };
+          requestAnimationFrame(animate);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    proofNumbers.forEach(el => counterObserver.observe(el));
+  }
+
+  /* ==========================================================================
+     11. TRUST STRIP INFINITE SCROLL (DUPLICATE ITEMS)
+     ========================================================================== */
+  const trustTrack = document.querySelector('.trust-strip-track');
+  if (trustTrack) {
+    // Duplicate items for seamless infinite scroll
+    const items = trustTrack.innerHTML;
+    trustTrack.innerHTML = items + items;
+  }
 });
