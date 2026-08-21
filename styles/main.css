@@ -446,6 +446,10 @@ img {
   .section {
     padding: 2.5rem 0;
   }
+  
+  .info-card {
+    padding: 1.5rem !important;
+  }
 
   /* 2-column layout for products on mobile */
   .product-grid {
