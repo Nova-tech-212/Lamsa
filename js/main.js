@@ -41,13 +41,8 @@ function scrollToForm() {
 function handleOrder(e) {
   e.preventDefault();
   
-  // Here you would normally send the data to a server/webhook (e.g., Google Sheets, Shopify, Custom API)
-  
-  alert("🎉 Thank you! Your order has been placed successfully. Our team will contact you soon for confirmation.");
-  
-  // Reset form
-  e.target.reset();
-  window.scrollTo(0, 0);
+  // User chose WhatsApp as the destination for form orders
+  orderViaWhatsapp();
 }
 
 // 4. Handle WhatsApp Order Submission
