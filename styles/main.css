@@ -225,10 +225,12 @@ body.hovering .cursor-outline {
 
 .navbar.scrolled .brand-logo,
 .navbar.scrolled .nav-cart span,
-.navbar.scrolled .nav-cart svg,
-.navbar.scrolled .hamburger span {
+.navbar.scrolled .nav-cart svg {
   color: var(--c-black) !important;
   stroke: var(--c-black) !important;
+}
+
+.navbar.scrolled .hamburger span {
   background-color: var(--c-black);
 }
 
