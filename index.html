@@ -1,15 +1,222 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>مجوهرات لمسة - Lamsa Jewelry</title>
-    <!-- 3D Model Viewer -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مجوهرات لمسة - السوار الفاخر آية الكرسي</title>
+  
+  <link rel="stylesheet" href="styles/main.css" />
+  
+  <!-- 3D Model Viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Announcement -->
+  <div style="background: var(--primary-color); color: white; text-align: center; padding: 0.75rem; font-size: 0.875rem;">
+    التوصيل مجاني لجميع المدن المغربية والدفع عند الاستلام! ✨
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container" style="display: flex; justify-content: center; align-items: center;">
+      <a href="/">
+        <img src="assets/images/logo.png" alt="Lamsa لمسة" style="height: 60px; object-fit: contain;" />
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section (3D) -->
+  <section class="hero fade-up">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span style="font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); font-family: var(--font-sans);">
+          اكتشف السوار بـ 360 درجة
+        </span>
+        <h1 style="font-size: 4rem; margin-top: 1rem; color: var(--primary-color);">آية الكرسي</h1>
+        <p style="max-width: 600px; margin: 1.5rem auto; color: var(--text-muted); font-size: 1.1rem;">
+          سوار فاخر من الستانلس ستيل بتصميم عصري وأنيق، يحمل أعظم آية في القرآن لترافقك في كل أوقاتك.
+        </p>
+        <button class="btn btn-primary scroll-to-order" style="margin-top: 1rem;">اطلب الآن حصرياً</button>
+      </div>
+
+      <model-viewer 
+        src="assets/models/bracelet.glb" 
+        poster="assets/images/IMG_5758.WEBP" 
+        alt="سوار آية الكرسي ثلاثي الأبعاد" 
+        camera-controls 
+        auto-rotate 
+        rotation-per-second="30deg"
+        shadow-intensity="1">
+      </model-viewer>
+    </div>
+  </section>
+
+  <!-- Anatomy (Hotspots) Section -->
+  <section class="section" style="background: var(--bg-secondary);">
+    <div class="container fade-up">
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 4rem; color: var(--primary-color);">دقة التفاصيل</h2>
+      
+      <div class="anatomy-container">
+        <!-- Main Blueprint Image or Placeholder -->
+        <img src="assets/images/IMG_5758.WEBP" alt="تفاصيل السوار" style="width: 100%; border: 1px solid #E5E7EB;" />
+        
+        <!-- Hotspots -->
+        <div class="hotspot" style="top: 30%; left: 45%;">
+          <div class="hotspot-info">
+            <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">نقش ليزر دقيق</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">آية الكرسي محفورة بدقة عالية جداً باستخدام الليزر لضمان عدم محوها أبداً.</p>
+          </div>
+        </div>
+        
+        <div class="hotspot" style="top: 70%; left: 70%;">
+          <div class="hotspot-info">
+            <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">ستانلس ستيل طبي</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">معدن عالي الجودة مضاد للصدأ والماء، لا يسبب أي حساسية للجلد.</p>
+          </div>
+        </div>
+
+        <div class="hotspot" style="top: 50%; left: 20%;">
+          <div class="hotspot-info">
+            <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">قفل قابل للتعديل</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">تصميم ذكي يسمح بتعديل مقاس السوار ليناسب جميع الأحجام بسهولة.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Color Gallery -->
+  <section class="section">
+    <div class="container fade-up">
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: var(--primary-color);">تعدد الألوان</h2>
+      
+      <div class="main-image-container">
+        <img id="img-gold" src="assets/images/IMG_5760.AVIF" alt="ذهبي" class="active" />
+        <img id="img-silver" src="assets/images/IMG_5761.AVIF" alt="فضي" />
+        <img id="img-rosegold" src="assets/images/IMG_5762.AVIF" alt="ذهبي وردي" />
+        <img id="img-black" src="assets/images/IMG_5763.AVIF" alt="أسود" />
+      </div>
+
+      <div class="color-options">
+        <div class="color-swatch active" style="background-color: #D4AF37;" data-name="ذهبي" data-img="img-gold"></div>
+        <div class="color-swatch" style="background-color: #C0C0C0;" data-name="فضي" data-img="img-silver"></div>
+        <div class="color-swatch" style="background-color: #B76E79;" data-name="ذهبي وردي" data-img="img-rosegold"></div>
+        <div class="color-swatch" style="background-color: #111827;" data-name="أسود" data-img="img-black"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lifestyle Carousel -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container fade-up delay-1">
+      <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem; color: var(--primary-color);">السوار على الطبيعة</h2>
+      <div class="hide-scrollbar" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding-bottom: 1rem; -webkit-overflow-scrolling: touch;">
+        <img src="assets/images/IMG_5765.WEBP" style="flex: 0 0 85%; scroll-snap-align: center; max-width: 400px; aspect-ratio: 1; object-fit: cover; border: 1px solid #E5E7EB;" />
+        <img src="assets/images/IMG_5770.WEBP" style="flex: 0 0 85%; scroll-snap-align: center; max-width: 400px; aspect-ratio: 1; object-fit: cover; border: 1px solid #E5E7EB;" />
+        <img src="assets/images/IMG_5771.WEBP" style="flex: 0 0 85%; scroll-snap-align: center; max-width: 400px; aspect-ratio: 1; object-fit: cover; border: 1px solid #E5E7EB;" />
+        <img src="assets/images/IMG_5772.WEBP" style="flex: 0 0 85%; scroll-snap-align: center; max-width: 400px; aspect-ratio: 1; object-fit: cover; border: 1px solid #E5E7EB;" />
+        <img src="assets/images/IMG_5773.WEBP" style="flex: 0 0 85%; scroll-snap-align: center; max-width: 400px; aspect-ratio: 1; object-fit: cover; border: 1px solid #E5E7EB;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+      <h2 class="fade-up" style="text-align: center; font-size: 2.5rem; margin-bottom: 4rem; color: var(--primary-color);">لماذا تختار هذا السوار؟</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem;">
+        
+        <div class="benefit-card fade-up delay-1">
+          <span class="benefit-number">01</span>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--primary-color);">الحفظ والتحصين</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">آية الكرسي هي أعظم آية، ولبسها يجعلك تتذكر دائماً قراءتها للتحصين طوال اليوم.</p>
+        </div>
+
+        <div class="benefit-card fade-up delay-2">
+          <span class="benefit-number">02</span>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--primary-color);">تذكير بذكر الله</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">في زحمة الحياة، رؤيتك للسوار هي تذكير دائم بذكر الله والشعور بالسكينة.</p>
+        </div>
+
+        <div class="benefit-card fade-up delay-3">
+          <span class="benefit-number">03</span>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--primary-color);">هدية ذات معنى</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">أفضل ما يمكنك إهداؤه لمن تحب! هدية تجمع بين الأناقة والرسالة الروحية.</p>
+        </div>
+
+        <div class="benefit-card fade-up delay-4">
+          <span class="benefit-number">04</span>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--primary-color);">جودة تدوم</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">مصنوع من الستانلس ستيل الطبي. لا يصدأ، لا يتغير لونه، ومقاوم للماء.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Checkout Form -->
+  <section id="order-section" class="section">
+    <div class="container fade-up" style="max-width: 600px;">
+      <div class="form-container">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">أكمل طلبك الآن</h2>
+          <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">299 درهم <span style="font-size: 1rem; color: var(--text-muted); text-decoration: line-through;">450 درهم</span></div>
+          <p style="color: var(--text-muted);">أدخل معلوماتك للطلب. الدفع يكون فقط عند استلام المنتج.</p>
+        </div>
+        
+        <form id="checkout-form">
+          <input type="hidden" id="selected-color" value="ذهبي" />
+          
+          <div style="margin-bottom: 1.5rem;">
+            <label for="name">الاسم الكامل</label>
+            <input type="text" id="name" class="form-control" required />
+          </div>
+          
+          <div style="margin-bottom: 1.5rem;">
+            <label for="phone">رقم الهاتف</label>
+            <input type="tel" id="phone" class="form-control" dir="ltr" style="text-align: left;" required />
+          </div>
+          
+          <div style="margin-bottom: 1.5rem;">
+            <label for="city">المدينة</label>
+            <input type="text" id="city" class="form-control" required />
+          </div>
+          
+          <div style="margin-bottom: 1.5rem;">
+            <label for="address">عنوان التوصيل</label>
+            <textarea id="address" class="form-control" rows="3" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="width: 100%;">تأكيد الطلب (الدفع عند الاستلام)</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="padding: 4rem 0 2rem; background-color: #000; color: white; text-align: center;">
+    <div class="container">
+      <h2 style="font-family: var(--font-arabic-serif); font-size: 2.5rem; margin-bottom: 2rem;">لمسة</h2>
+      <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 3rem;">
+        <a href="#" style="border-bottom: 1px solid transparent;">انستغرام</a>
+        <a href="#" style="border-bottom: 1px solid transparent;">واتساب</a>
+        <a href="#" style="border-bottom: 1px solid transparent;">اتصل بنا</a>
+      </div>
+      <p style="color: #6B7280; font-size: 0.875rem;">&copy; 2026 مجوهرات لمسة. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp CTA -->
+  <a href="#" class="floating-cta scroll-to-order">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="21" r="1"></circle>
+      <circle cx="20" cy="21" r="1"></circle>
+      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+    </svg>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
 </html>
