@@ -1,251 +1,373 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>مجوهرات لمسة - السوار الفاخر آية الكرسي</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>مجوهرات لمسة | Lamsa Jewelry</title>
   
-  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/main.css">
   
   <!-- 3D Model Viewer -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
 </head>
-<body>
+<body class="loading">
 
-  <!-- Top Announcement -->
-  <div class="announcement-bar">
-    التوصيل مجاني لجميع المدن المغربية والدفع عند الاستلام! ✨
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="preloader-content">
+      <div class="brand-text">LAMSA</div>
+      <div class="loading-bar-container">
+        <div class="loading-bar"></div>
+      </div>
+      <div class="loading-percentage">0%</div>
+    </div>
   </div>
 
-  <!-- Professional Navbar -->
-  <header class="navbar">
-    <div class="nav-container">
-      <div class="nav-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </div>
-      <a href="/" class="logo">
-        <img src="assets/images/logo.png" alt="Lamsa" />
-      </a>
-      <div class="nav-icon" style="position: relative;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-        <span class="cart-badge">1</span>
-      </div>
-    </div>
-  </header>
-
-  <!-- Main Product Section (E-Commerce Split) -->
-  <main class="product-page container">
-    
-    <!-- Left: Gallery -->
-    <div class="product-gallery fade-up">
-      <div class="main-image-wrapper">
-        <img id="main-product-image" src="assets/images/IMG_5758.WEBP" alt="سوار آية الكرسي" />
-      </div>
-      <div class="thumbnail-row hide-scrollbar">
-        <img src="assets/images/IMG_5758.WEBP" class="thumb active" data-src="assets/images/IMG_5758.WEBP" />
-        <img src="assets/images/IMG_5760.AVIF" class="thumb" data-src="assets/images/IMG_5760.AVIF" />
-        <img src="assets/images/IMG_5761.AVIF" class="thumb" data-src="assets/images/IMG_5761.AVIF" />
-        <img src="assets/images/IMG_5762.AVIF" class="thumb" data-src="assets/images/IMG_5762.AVIF" />
-        <img src="assets/images/IMG_5763.AVIF" class="thumb" data-src="assets/images/IMG_5763.AVIF" />
-        <img src="assets/images/IMG_5765.WEBP" class="thumb" data-src="assets/images/IMG_5765.WEBP" />
-      </div>
-    </div>
-
-    <!-- Right: Product Info -->
-    <div class="product-info fade-up delay-1">
-      <div class="reviews-stars">
-        ⭐⭐⭐⭐⭐ <span style="color: var(--text-muted); font-size: 0.9rem;">(128 تقييم)</span>
-      </div>
-      
-      <h1 class="product-title">سوار آية الكرسي الفاخر</h1>
-      
-      <div class="product-price">
-        <span class="current-price">299 درهم</span>
-        <span class="old-price">450 درهم</span>
-        <span class="sale-badge">تخفيض حصري</span>
-      </div>
-
-      <p class="product-desc">
-        احملي معك تذكيراً قوياً بالإيمان والحماية. سوار أنيق من الستانلس ستيل الطبي، منقوش بآية الكرسي بدقة ليزرية عالية ليدوم طويلاً.
-      </p>
-
-      <div class="product-variants">
-        <label>اللون: <strong id="selected-color-label">ذهبي</strong></label>
-        <div class="color-options">
-          <div class="color-swatch active" style="background-color: #D4AF37;" data-name="ذهبي" data-img="assets/images/IMG_5760.AVIF"></div>
-          <div class="color-swatch" style="background-color: #C0C0C0;" data-name="فضي" data-img="assets/images/IMG_5761.AVIF"></div>
-          <div class="color-swatch" style="background-color: #B76E79;" data-name="ذهبي وردي" data-img="assets/images/IMG_5762.AVIF"></div>
-          <div class="color-swatch" style="background-color: #111827;" data-name="أسود" data-img="assets/images/IMG_5763.AVIF"></div>
-        </div>
-      </div>
-
-      <button class="btn btn-primary buy-btn scroll-to-order">
-        اطلب الآن - الدفع عند الاستلام
+  <!-- Slide-out Cart (Drawer) -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h2>إتمام الطلب</h2>
+      <button class="close-cart btn-magnetic" id="close-cart">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
-
-      <div class="trust-badges">
-        <div class="badge">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-          <span>دفع آمن</span>
-        </div>
-        <div class="badge">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-          <span>جودة مضمونة</span>
-        </div>
-        <div class="badge">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-          <span>توصيل مجاني</span>
-        </div>
-      </div>
-
-      <!-- Accordions -->
-      <div class="accordions">
-        <div class="accordion">
-          <button class="accordion-header">
-            تفاصيل المنتج
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          <div class="accordion-content">
-            <p>سوار أنيق وعصري يتناسب مع جميع المناسبات. محفور عليه آية الكرسي كاملة بتقنية الليزر الدقيقة.</p>
-          </div>
-        </div>
-        
-        <div class="accordion">
-          <button class="accordion-header">
-            المواد والجودة
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          <div class="accordion-content">
-            <p>مصنوع من الستانلس ستيل الطبي عيار 316L. مضاد للصدأ، لا يتغير لونه، ومقاوم للماء والعطور تماماً.</p>
-          </div>
-        </div>
-
-        <div class="accordion">
-          <button class="accordion-header">
-            الشحن والتوصيل
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          <div class="accordion-content">
-            <p>التوصيل مجاني وسريع لجميع المدن المغربية (24 - 48 ساعة). الدفع يكون نقداً عند استلام المنتج.</p>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </main>
-
-  <!-- Cinematic Video & 3D Section -->
-  <section class="section multimedia-section">
-    <div class="container fade-up">
-      <h2 style="text-align: center; margin-bottom: 2rem;">شاهد السوار بجميع تفاصيله</h2>
+    <div class="cart-body">
+      <div class="cart-item">
+        <img src="assets/images/IMG_5758.WEBP" alt="السوار" id="cart-item-image">
+        <div class="cart-item-info">
+          <h3>سوار آية الكرسي الفاخر</h3>
+          <p class="cart-item-color" id="cart-item-color-label">الإصدار الذهبي</p>
+          <span class="cart-item-price">299 MAD</span>
+        </div>
+      </div>
+      <div class="cart-divider"></div>
       
-      <div class="media-grid">
-        <div class="video-container">
-          <video src="assets/images/gemini_generated_video_6B0BD8C3.MP4" autoplay loop muted playsinline></video>
-          <div class="video-overlay">فخامة تنطق</div>
+      <form id="checkout-form" class="checkout-form">
+        <input type="hidden" id="selected-product-color" value="ذهبي">
+        
+        <div class="form-group slide-up-form">
+          <input type="text" id="name" required placeholder=" " autocomplete="name">
+          <label for="name">الاسم الكامل</label>
         </div>
         
-        <div class="model-container">
+        <div class="form-group slide-up-form" style="transition-delay: 0.1s;">
+          <input type="tel" id="phone" required placeholder=" " dir="ltr" autocomplete="tel">
+          <label for="phone">رقم الهاتف</label>
+        </div>
+        
+        <div class="form-group slide-up-form" style="transition-delay: 0.2s;">
+          <input type="text" id="city" required placeholder=" " autocomplete="address-level2">
+          <label for="city">المدينة</label>
+        </div>
+        
+        <div class="form-group slide-up-form" style="transition-delay: 0.3s;">
+          <textarea id="address" rows="2" required placeholder=" "></textarea>
+          <label for="address">العنوان الكامل للتوصيل</label>
+        </div>
+
+        <div class="cart-summary slide-up-form" style="transition-delay: 0.4s;">
+          <div class="summary-line">
+            <span>المجموع:</span>
+            <span>299 درهم</span>
+          </div>
+          <div class="summary-line">
+            <span>التوصيل:</span>
+            <span style="color: #2E7D32;">مجاني</span>
+          </div>
+          <div class="summary-line total">
+            <span>الإجمالي:</span>
+            <span>299 درهم</span>
+          </div>
+          <p class="payment-method-note"> الدفع نقداً عند الاستلام</p>
+        </div>
+
+        <button type="submit" class="btn-checkout btn-magnetic slide-up-form" style="transition-delay: 0.5s;">
+          <span class="btn-text">تأكيد الطلب الآن</span>
+        </button>
+      </form>
+    </div>
+  </aside>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <button class="nav-toggle btn-magnetic">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      
+      <a href="#" class="brand-logo">LAMSA</a>
+      
+      <button class="nav-cart btn-magnetic" id="open-cart">
+        <span>الحقيبة</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Smooth Scroll Wrapper -->
+  <div class="smooth-scroll-wrapper" id="scroll-wrapper">
+    
+    <!-- Hero Section (Video Background) -->
+    <header class="hero" id="hero">
+      <div class="hero-video-wrapper parallax-bg" data-speed="0.5">
+        <video autoplay muted loop playsinline class="hero-video">
+          <source src="assets/images/gemini_generated_video_6B0BD8C3.MP4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+      </div>
+      
+      <div class="hero-content">
+        <div class="hero-title-mask">
+          <h1 class="hero-title" data-speed="-0.2">الإيمان والأناقة</h1>
+        </div>
+        <div class="hero-subtitle-mask">
+          <p class="hero-subtitle fade-in-up" style="transition-delay: 0.3s;">
+            أعظم آية في القرآن الكريم، منقوشة بأرقى معايير المجوهرات.
+          </p>
+        </div>
+        <button class="btn-primary btn-magnetic fade-in-up" style="transition-delay: 0.6s;" onclick="document.getElementById('collection').scrollIntoView({behavior:'smooth'})">
+          <span class="btn-text">اكتشف التشكيلة</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Marquee Section -->
+    <div class="marquee-section">
+      <div class="marquee-inner">
+        <div class="marquee-content">
+          <span>تصميم حصري</span> • <span>توصيل مجاني</span> • <span>دفع عند الاستلام</span> • <span>ضمان الجودة</span> • 
+          <span>تصميم حصري</span> • <span>توصيل مجاني</span> • <span>دفع عند الاستلام</span> • <span>ضمان الجودة</span> • 
+          <span>تصميم حصري</span> • <span>توصيل مجاني</span> • <span>دفع عند الاستلام</span> • <span>ضمان الجودة</span> • 
+        </div>
+      </div>
+    </div>
+
+    <!-- Introduction / Manifesto -->
+    <section class="section manifesto">
+      <div class="container">
+        <div class="manifesto-text reveal-text">
+          نحن في لمسة نؤمن بأن المجوهرات ليست مجرد زينة، بل هي تعبير عن هويتك وإيمانك. سوار آية الكرسي صُمم ليكون رفيقك الدائم، يجمع بين الفخامة العصرية والروحانية العميقة.
+        </div>
+      </div>
+    </section>
+
+    <!-- The Collection Grid (Storefront) -->
+    <section class="section collection" id="collection">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title reveal-text">التشكيلة الحصرية</h2>
+          <p class="section-desc fade-in-up">اختر اللون الذي يعكس شخصيتك.</p>
+        </div>
+        
+        <div class="product-grid">
+          <!-- Product 1 -->
+          <div class="product-card fade-in-up" style="transition-delay: 0.1s;">
+            <div class="product-image-wrapper open-quick-shop" data-color="ذهبي" data-img="assets/images/IMG_5760.AVIF">
+              <img src="assets/images/IMG_5760.AVIF" alt="الإصدار الذهبي" class="product-img-main">
+              <img src="assets/images/IMG_5765.WEBP" alt="الإصدار الذهبي - نظرة ثانية" class="product-img-hover">
+              <div class="quick-shop-btn">تسوق الآن</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">الإصدار الذهبي</h3>
+              <p class="product-price">299 درهم</p>
+            </div>
+          </div>
+          
+          <!-- Product 2 -->
+          <div class="product-card fade-in-up" style="transition-delay: 0.2s;">
+            <div class="product-image-wrapper open-quick-shop" data-color="فضي" data-img="assets/images/IMG_5761.AVIF">
+              <img src="assets/images/IMG_5761.AVIF" alt="الإصدار الفضي" class="product-img-main">
+              <img src="assets/images/IMG_5770.WEBP" alt="الإصدار الفضي - نظرة ثانية" class="product-img-hover">
+              <div class="quick-shop-btn">تسوق الآن</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">الإصدار الفضي</h3>
+              <p class="product-price">299 درهم</p>
+            </div>
+          </div>
+          
+          <!-- Product 3 -->
+          <div class="product-card fade-in-up" style="transition-delay: 0.3s;">
+            <div class="product-image-wrapper open-quick-shop" data-color="ذهبي وردي" data-img="assets/images/IMG_5762.AVIF">
+              <img src="assets/images/IMG_5762.AVIF" alt="الإصدار الذهبي الوردي" class="product-img-main">
+              <img src="assets/images/IMG_5771.WEBP" alt="الإصدار الذهبي الوردي - نظرة ثانية" class="product-img-hover">
+              <div class="quick-shop-btn">تسوق الآن</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">الذهبي الوردي</h3>
+              <p class="product-price">299 درهم</p>
+            </div>
+          </div>
+          
+          <!-- Product 4 -->
+          <div class="product-card fade-in-up" style="transition-delay: 0.4s;">
+            <div class="product-image-wrapper open-quick-shop" data-color="أسود" data-img="assets/images/IMG_5763.AVIF">
+              <img src="assets/images/IMG_5763.AVIF" alt="الإصدار الأسود" class="product-img-main">
+              <img src="assets/images/IMG_5772.WEBP" alt="الإصدار الأسود - نظرة ثانية" class="product-img-hover">
+              <div class="quick-shop-btn">تسوق الآن</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">الإصدار الأسود</h3>
+              <p class="product-price">299 درهم</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Craftsmanship (Parallax Storytelling) -->
+    <section class="section craft">
+      <div class="craft-container">
+        <div class="craft-image-wrapper">
+          <img src="assets/images/IMG_5776.JPG" alt="تفاصيل السوار" class="craft-img parallax-img" data-speed="0.15">
+        </div>
+        <div class="craft-text-wrapper">
+          <h2 class="craft-title reveal-text">دقة متناهية</h2>
+          <p class="craft-desc fade-in-up">
+            تم نقش آية الكرسي باستخدام أحدث تقنيات الليزر الميكروية، لضمان وضوح كل حرف وثباته للأبد. السوار مصنوع من الستانلس ستيل الطبي المقاوم للصدأ والعطور، ليظل لامعاً كما اشتريته أول مرة.
+          </p>
+          
+          <div class="features-list">
+            <div class="feature-item fade-in-up" style="transition-delay: 0.1s;">
+              <span class="feature-line"></span>
+              <h4>مقاوم للماء والصدأ</h4>
+            </div>
+            <div class="feature-item fade-in-up" style="transition-delay: 0.2s;">
+              <span class="feature-line"></span>
+              <h4>قفل قابل للتعديل</h4>
+            </div>
+            <div class="feature-item fade-in-up" style="transition-delay: 0.3s;">
+              <span class="feature-line"></span>
+              <h4>لا يسبب الحساسية</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D Experience -->
+    <section class="section model-section dark-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title reveal-text" style="color: white;">تجربة الواقع</h2>
+          <p class="section-desc fade-in-up" style="color: #A0A0A0;">حرك السوار بـ 360 درجة لاستكشاف أدق التفاصيل.</p>
+        </div>
+        
+        <div class="viewer-wrapper fade-in-up">
           <model-viewer 
             src="assets/models/bracelet.glb" 
             poster="assets/images/IMG_5758.WEBP" 
-            alt="3D" 
-            camera-controls auto-rotate shadow-intensity="1">
+            alt="سوار ثلاثي الأبعاد" 
+            camera-controls 
+            auto-rotate 
+            rotation-per-second="20deg"
+            shadow-intensity="2"
+            environment-image="legacy"
+            exposure="1.2">
           </model-viewer>
-          <div class="model-hint">حرك بـ 360 درجة</div>
+          <div class="viewer-hint">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"></path><path d="M12 2v10l5.5 5.5"></path></svg>
+            <span>اسحب للتدوير</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Customer Reviews -->
-  <section class="section" style="background: var(--bg-secondary);">
-    <div class="container fade-up">
-      <h2 style="text-align: center; font-size: 2rem; margin-bottom: 3rem;">آراء زبنائنا الكرام</h2>
+    <!-- Draggable Testimonials -->
+    <section class="section testimonials">
+      <div class="container">
+        <h2 class="section-title reveal-text">آراء زبنائنا</h2>
+        
+        <div class="testimonials-slider-container">
+          <div class="testimonials-track" id="testimonials-track">
+            <!-- Review 1 -->
+            <div class="testimonial-card">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p class="review-body">"سوار رائع جداً، الجودة ديالو هربانة والتوصيل كان سريع. غنرجع نتقدا من عندكم أكيد!"</p>
+              <p class="review-author">— هند ، كازا</p>
+            </div>
+            <!-- Review 2 -->
+            <div class="testimonial-card">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p class="review-body">"خديتو كادو لماما وعجبها بزاف. التغليف كان زوين والنقش واضح ومزيان تبارك الله عليكم."</p>
+              <p class="review-author">— سناء ، الرباط</p>
+            </div>
+            <!-- Review 3 -->
+            <div class="testimonial-card">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p class="review-body">"اللون ديالو ماتغيرش نهائيا واخا كندوش بيه. شكرا على المصداقية ديالكم وحسن المعاملة."</p>
+              <p class="review-author">— مريم ، طنجة</p>
+            </div>
+            <!-- Review 4 -->
+            <div class="testimonial-card">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p class="review-body">"الصراحة أحسن حاجة شريتها من الانترنيت. القفل ديالو ساهل وكيجي قد اليد بالضبط."</p>
+              <p class="review-author">— أيمن ، مراكش</p>
+            </div>
+          </div>
+          
+          <div class="slider-progress">
+            <div class="slider-progress-bar" id="slider-progress-bar"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mega Footer -->
+    <footer class="footer">
+      <div class="footer-top container">
+        <div class="footer-brand">
+          <h2 class="footer-logo">LAMSA</h2>
+          <p class="footer-tagline">مجوهرات راقية بلمسة روحية وإيمان.</p>
+        </div>
+        
+        <div class="footer-links-grid">
+          <div class="footer-column">
+            <h3>روابط سريعة</h3>
+            <ul>
+              <li><a href="#" class="link-hover">المتجر</a></li>
+              <li><a href="#" class="link-hover">من نحن</a></li>
+              <li><a href="#" class="link-hover">الأسئلة الشائعة</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>المساعدة</h3>
+            <ul>
+              <li><a href="#" class="link-hover">تتبع الطلب</a></li>
+              <li><a href="#" class="link-hover">سياسة الاسترجاع</a></li>
+              <li><a href="#" class="link-hover">اتصل بنا</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>تابعنا</h3>
+            <ul class="social-links">
+              <li><a href="#" class="link-hover">Instagram</a></li>
+              <li><a href="#" class="link-hover">TikTok</a></li>
+              <li><a href="#" class="link-hover">Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
       
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="review-stars">⭐⭐⭐⭐⭐</div>
-          <p class="review-text">"سوار رائع جداً، الجودة ديالو هربانة والتوصيل كان سريع. شكراً جزيلاً!"</p>
-          <p class="review-author">- فاطمة الزهراء، كازا</p>
+      <div class="footer-bottom container">
+        <div class="trust-icons">
+          <span>دفع آمن عند الاستلام</span>
+          <span>•</span>
+          <span>شحن مجاني</span>
         </div>
-        
-        <div class="review-card">
-          <div class="review-stars">⭐⭐⭐⭐⭐</div>
-          <p class="review-text">"خديتو كادو لماما وعجبها بزاف. التغليف كان زوين والنقش واضح ومزيان."</p>
-          <p class="review-author">- سناء، الرباط</p>
-        </div>
-
-        <div class="review-card">
-          <div class="review-stars">⭐⭐⭐⭐⭐</div>
-          <p class="review-text">"اللون ديالو ماتغيرش نهائيا واخا كندوش بيه. شكرا على المصداقية ديالكم."</p>
-          <p class="review-author">- مريم، طنجة</p>
-        </div>
+        <p class="copyright">&copy; 2026 Lamsa Jewelry. All rights reserved.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Checkout Form -->
-  <section id="order-section" class="section">
-    <div class="container fade-up" style="max-width: 600px;">
-      <div class="form-container">
-        <div style="text-align: center; margin-bottom: 2rem;">
-          <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 0.5rem;">تأكيد الطلب</h2>
-          <p style="color: var(--text-muted);">املأ المعلومات للتوصل بطلبك (الدفع عند الاستلام)</p>
-        </div>
-        
-        <form id="checkout-form">
-          <input type="hidden" id="form-selected-color" value="ذهبي" />
-          
-          <div style="margin-bottom: 1.5rem;">
-            <label>الاسم الكامل</label>
-            <input type="text" id="name" class="form-control" required />
-          </div>
-          
-          <div style="margin-bottom: 1.5rem;">
-            <label>رقم الهاتف</label>
-            <input type="tel" id="phone" class="form-control" dir="ltr" style="text-align: left;" required />
-          </div>
-          
-          <div style="margin-bottom: 1.5rem;">
-            <label>المدينة</label>
-            <input type="text" id="city" class="form-control" required />
-          </div>
-          
-          <div style="margin-bottom: 1.5rem;">
-            <label>عنوان التوصيل</label>
-            <textarea id="address" class="form-control" rows="3" required></textarea>
-          </div>
-          
-          <button type="submit" class="btn btn-primary buy-btn" style="width: 100%;">
-            تأكيد الطلب 
-            <svg style="margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <h2>لمسة</h2>
-      <p>مجوهرات راقية بلمسة روحية وإيمان.</p>
-      <div class="footer-links">
-        <a href="#">الشروط والأحكام</a>
-        <a href="#">سياسة الخصوصية</a>
-        <a href="#">اتصل بنا</a>
-      </div>
-      <p style="color: #6B7280; font-size: 0.875rem; margin-top: 2rem;">&copy; 2026 مجوهرات لمسة. جميع الحقوق محفوظة.</p>
-    </div>
-  </footer>
-
-  <!-- Sticky Mobile Checkout Button -->
-  <div class="mobile-sticky-cta">
-    <button class="btn btn-primary scroll-to-order" style="width: 100%; border-radius: 4px;">
-      اطلب الآن - 299 درهم
-    </button>
-  </div>
+    </footer>
+    
+  </div> <!-- End Smooth Scroll Wrapper -->
 
   <script src="js/main.js"></script>
 </body>
