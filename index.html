@@ -201,11 +201,21 @@
       body {
         padding-bottom: 80px; /* Space for mobile CTA */
       }
-      .gallery-grid {
-        grid-template-columns: 1fr;
+      .gallery-grid, .lifestyle-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
       }
-      .lifestyle-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .gallery-grid::-webkit-scrollbar, .lifestyle-grid::-webkit-scrollbar {
+        display: none;
+      }
+      .gallery-grid img, .lifestyle-grid img {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
       }
     }
   </style>
@@ -297,35 +307,6 @@
     </div>
   </section>
 
-  <!-- Benefits Section -->
-  <section class="section" style="background-color: var(--bg-secondary);">
-    <div class="container">
-      <h2 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: var(--primary-color);">لماذا تختار سوار آية الكرسي؟</h2>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <span class="benefit-number">01</span>
-          <h3>الحفظ والتحصين</h3>
-          <p>آية الكرسي هي أعظم آية في القرآن، ولبسها يجعلك تتذكر دائماً قراءتها للتحصين والحفظ طوال اليوم.</p>
-        </div>
-        <div class="benefit-card">
-          <span class="benefit-number">02</span>
-          <h3>تذكير بذكر الله</h3>
-          <p>في زحمة الحياة، رؤيتك للسوار في معصمك هي تذكير دائم بذكر الله والشعور بالسكينة والطمأنينة.</p>
-        </div>
-        <div class="benefit-card">
-          <span class="benefit-number">03</span>
-          <h3>هدية ذات معنى عميق</h3>
-          <p>أفضل ما يمكنك إهداؤه لمن تحب! هدية تجمع بين الأناقة والرسالة الروحية العميقة التي تعبر عن اهتمامك.</p>
-        </div>
-        <div class="benefit-card">
-          <span class="benefit-number">04</span>
-          <h3>جودة تدوم طويلاً</h3>
-          <p>مصنوع من الستانلس ستيل الطبي عالي الجودة. لا يصدأ، لا يتغير لونه، ومقاوم للماء ليلائم نشاطك اليومي.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Photo Gallery Section -->
   <section class="section" style="padding-top: 0;">
     <div class="container">
@@ -348,8 +329,6 @@
       </div>
     </div>
   </section>
-
-
 
   <!-- Checkout Form Section -->
   <section id="order-section" style="padding: 4rem 0; background: var(--bg-secondary);">
@@ -390,6 +369,35 @@
             <span>اطلب عبر واتساب</span>
           </button>
         </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="section" style="background-color: var(--bg-main);">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: var(--primary-color);">لماذا تختار سوار آية الكرسي؟</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <span class="benefit-number">01</span>
+          <h3>الحفظ والتحصين</h3>
+          <p>آية الكرسي هي أعظم آية في القرآن، ولبسها يجعلك تتذكر دائماً قراءتها للتحصين والحفظ طوال اليوم.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-number">02</span>
+          <h3>تذكير بذكر الله</h3>
+          <p>في زحمة الحياة، رؤيتك للسوار في معصمك هي تذكير دائم بذكر الله والشعور بالسكينة والطمأنينة.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-number">03</span>
+          <h3>هدية ذات معنى عميق</h3>
+          <p>أفضل ما يمكنك إهداؤه لمن تحب! هدية تجمع بين الأناقة والرسالة الروحية العميقة التي تعبر عن اهتمامك.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-number">04</span>
+          <h3>جودة تدوم طويلاً</h3>
+          <p>مصنوع من الستانلس ستيل الطبي عالي الجودة. لا يصدأ، لا يتغير لونه، ومقاوم للماء ليلائم نشاطك اليومي.</p>
+        </div>
       </div>
     </div>
   </section>
