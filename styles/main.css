@@ -601,7 +601,7 @@ body.hovering .cursor-outline {
   transform: translateY(-2px);
 }
 .action-btn.whatsapp { background: #25D366; }
-.action-btn.tiktok { background: #000000; }
+.action-btn.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
 .action-btn.phone { background: var(--c-grey-dark); }
 
 /* ==========================================================================
