@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lamsa - Ayatul Kursi Cuff Bracelet</title>
+  <title>لمسة - سوار آية الكرسي</title>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" id="rtl-stylesheet" href="styles/rtl.css" disabled>
+  <link rel="stylesheet" href="styles/rtl.css">
   <style>
     /* Landing Page Specific Styles */
     .landing-product {
@@ -130,6 +130,41 @@
       display: none;
     }
 
+    /* Video and Gallery Sections */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 8px;
+      aspect-ratio: 1;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .video-section {
+      padding: 4rem 0;
+      background: #f9fafb;
+      text-align: center;
+    }
+
+    .video-container {
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .video-container video {
+      width: 100%;
+      display: block;
+    }
+
     @media (max-width: 768px) {
       .landing-product {
         grid-template-columns: 1fr;
@@ -154,6 +189,9 @@
       body {
         padding-bottom: 80px; /* Space for mobile CTA */
       }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -161,21 +199,15 @@
 
   <!-- Top Announcement Bar -->
   <div class="announcement-bar">
-    <p data-i18n="announcement">Free cash on delivery anywhere in Morocco! ✨</p>
+    <p>التوصيل مجاني لجميع المدن المغربية والدفع عند الاستلام! ✨</p>
   </div>
 
   <!-- Header -->
   <header class="header">
     <div class="container header-container" style="justify-content: center;">
-      <div style="position: absolute; left: 1.5rem;" class="lang-switcher">
-        <button id="lang-toggle">
-          <span class="lang-text">AR</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-        </button>
-      </div>
       <!-- Logo centered -->
-      <a href="index.html" class="brand-logo">
-        Lamsa <span class="arabic-logo">لمسة</span>
+      <a href="index.html" class="brand-logo" style="font-family: 'Amiri', serif; font-size: 2rem;">
+        لمسة
       </a>
     </div>
   </header>
@@ -186,58 +218,58 @@
       
       <!-- Product Images -->
       <div class="product-images">
-        <img src="assets/images/IMG_5758.WEBP" alt="Ayatul Kursi Bracelet" id="main-product-image" class="main-image">
+        <img src="assets/images/IMG_5758.WEBP" alt="سوار آية الكرسي" id="main-product-image" class="main-image">
         
         <div style="margin-top: 2rem;">
-          <h4 data-i18n="select_color" style="margin-bottom: 0.5rem;">Select your color: <span id="color-label" style="color: var(--text-muted); font-weight: 400;">Mix</span></h4>
+          <h4 style="margin-bottom: 0.5rem;">اختر اللون: <span id="color-label" style="color: var(--text-muted); font-weight: 400;">تشكيلة</span></h4>
           <div class="color-options" style="flex-wrap: wrap;">
-            <img src="assets/images/IMG_5758.WEBP" class="color-swatch active" data-color="mix" data-name="Mixed Pack" data-image="assets/images/IMG_5758.WEBP" alt="Mix">
-            <img src="assets/images/IMG_5760.AVIF" class="color-swatch" data-color="gold" data-name="Gold" data-image="assets/images/IMG_5760.AVIF" alt="Gold">
-            <img src="assets/images/IMG_5761.AVIF" class="color-swatch" data-color="silver" data-name="Silver" data-image="assets/images/IMG_5761.AVIF" alt="Silver">
-            <img src="assets/images/IMG_5762.AVIF" class="color-swatch" data-color="rosegold" data-name="Rose Gold" data-image="assets/images/IMG_5762.AVIF" alt="Rose Gold">
-            <img src="assets/images/IMG_5763.AVIF" class="color-swatch" data-color="black" data-name="Matte Black" data-image="assets/images/IMG_5763.AVIF" alt="Black">
+            <img src="assets/images/IMG_5758.WEBP" class="color-swatch active" data-color="mix" data-name="تشكيلة" data-image="assets/images/IMG_5758.WEBP" alt="تشكيلة">
+            <img src="assets/images/IMG_5760.AVIF" class="color-swatch" data-color="gold" data-name="ذهبي" data-image="assets/images/IMG_5760.AVIF" alt="ذهبي">
+            <img src="assets/images/IMG_5761.AVIF" class="color-swatch" data-color="silver" data-name="فضي" data-image="assets/images/IMG_5761.AVIF" alt="فضي">
+            <img src="assets/images/IMG_5762.AVIF" class="color-swatch" data-color="rosegold" data-name="ذهبي وردي" data-image="assets/images/IMG_5762.AVIF" alt="ذهبي وردي">
+            <img src="assets/images/IMG_5763.AVIF" class="color-swatch" data-color="black" data-name="أسود" data-image="assets/images/IMG_5763.AVIF" alt="أسود">
           </div>
         </div>
       </div>
 
       <!-- Product Info & Direct Form -->
       <div class="product-info-panel">
-        <h1 data-i18n="product_title" style="font-size: 2.5rem; margin-bottom: 1rem;">Premium Ayatul Kursi Cuff Bracelet</h1>
-        <p data-i18n="product_desc" style="font-size: 1.125rem; color: var(--text-muted); line-height: 1.6;">
-          Carry a powerful reminder of faith and protection every day. Our elegant stainless steel cuff is intricately engraved with Ayatul Kursi. Rust-proof, water-resistant, and designed to last a lifetime.
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">سوار آية الكرسي الفاخر</h1>
+        <p style="font-size: 1.125rem; color: var(--text-muted); line-height: 1.6;">
+          احملي معك تذكيراً قوياً بالإيمان والحماية كل يوم. سوار أنيق من الستانلس ستيل منقوش بآية الكرسي بدقة. مقاوم للصدأ والماء ومصمم ليدوم.
         </p>
 
         <div class="price-block">
-          <span id="current-price">299 MAD</span>
-          <span class="price-original">499 MAD</span>
+          <span id="current-price">299 درهم</span>
+          <span class="price-original">499 درهم</span>
         </div>
         
         <!-- Trust badges -->
         <div style="display: flex; gap: 1.5rem; margin-bottom: 2rem; color: var(--primary-color); font-weight: 500;">
           <div style="display: flex; align-items: center; gap: 0.5rem;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            <span data-i18n="rust_proof">Rust Proof</span>
+            <span>مقاوم للصدأ</span>
           </div>
           <div style="display: flex; align-items: center; gap: 0.5rem;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-            <span data-i18n="free_delivery">Free Delivery</span>
+            <span>توصيل مجاني</span>
           </div>
         </div>
 
         <button class="btn btn-primary" style="width: 100%; font-size: 1.25rem; padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem;" onclick="scrollToForm()">
-          <span data-i18n="buy_now">Order Now - Pay on Delivery</span>
+          <span>اطلب الآن - الدفع عند الاستلام</span>
         </button>
 
         <div style="text-align: center;">
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Or order directly via:</p>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">أو اطلب مباشرة عبر:</p>
           <div class="contact-circles">
-            <a href="tel:+212600000000" class="circle-btn circle-phone" aria-label="Call Us">
+            <a href="tel:+212600000000" class="circle-btn circle-phone" aria-label="اتصل بنا">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             </a>
-            <a href="javascript:void(0)" onclick="orderViaWhatsapp()" class="circle-btn circle-whatsapp" aria-label="WhatsApp">
+            <a href="javascript:void(0)" onclick="orderViaWhatsapp()" class="circle-btn circle-whatsapp" aria-label="واتساب">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
             </a>
-            <a href="https://instagram.com/lamsajewelry" target="_blank" class="circle-btn circle-instagram" aria-label="Instagram">
+            <a href="https://instagram.com/lamsajewelry" target="_blank" class="circle-btn circle-instagram" aria-label="انستغرام">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
           </div>
@@ -247,15 +279,29 @@
     </div>
   </section>
 
-  <!-- Brand Value / Story -->
-  <section class="brand-story-banner">
-    <div class="container banner-grid">
-      <div class="banner-image">
-        <img src="assets/images/IMG_5765.WEBP" alt="Craftsmanship" style="border-radius: 12px;">
+  <!-- Photo Gallery Section -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem;">اكتشف جمال التفاصيل</h2>
+      <div class="gallery-grid">
+        <img src="assets/images/IMG_5760.AVIF" alt="سوار ذهبي">
+        <img src="assets/images/IMG_5761.AVIF" alt="سوار فضي">
+        <img src="assets/images/IMG_5762.AVIF" alt="سوار ذهبي وردي">
+        <img src="assets/images/IMG_5763.AVIF" alt="سوار أسود">
       </div>
-      <div class="banner-content">
-        <h2 data-i18n="story_title">The Art of Calligraphy</h2>
-        <p data-i18n="story_desc">Every piece is designed to be a daily reminder of faith, love, and hope. Our premium stainless steel bracelets are crafted to last a lifetime, just like the words they carry.</p>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="video-section">
+    <div class="container">
+      <h2 style="font-size: 2rem; margin-bottom: 2rem;">شاهد السوار عن قرب</h2>
+      <div class="video-container">
+        <!-- Add your video file here. Replace src with the real video path -->
+        <video controls poster="assets/images/IMG_5758.WEBP">
+          <source src="assets/video.mp4" type="video/mp4">
+          متصفحك لا يدعم تشغيل الفيديو.
+        </video>
       </div>
     </div>
   </section>
@@ -265,38 +311,38 @@
     <div class="container" style="max-width: 600px;">
       <div class="form-container" style="background: white; border: none; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
         <div style="text-align: center; margin-bottom: 2rem;">
-          <h2 data-i18n="checkout_title" style="font-size: 2rem; color: var(--primary-color);">Complete Your Order</h2>
-          <p data-i18n="checkout_subtitle" style="color: var(--text-muted);">Fill in your details. You will pay only when you receive your bracelet.</p>
+          <h2 style="font-size: 2rem; color: var(--primary-color);">أكمل طلبك</h2>
+          <p style="color: var(--text-muted);">أدخل معلوماتك للطلب. الدفع يكون فقط عند استلام المنتج.</p>
         </div>
         
         <form id="cod-form" onsubmit="handleOrder(event)">
           <!-- Hidden field to store selected color -->
-          <input type="hidden" id="selected-color" value="Mix">
+          <input type="hidden" id="selected-color" value="تشكيلة">
 
           <div class="form-group">
-            <label data-i18n="full_name">Full Name</label>
-            <input type="text" id="name" class="form-control" required data-i18n="full_name">
+            <label>الاسم الكامل</label>
+            <input type="text" id="name" class="form-control" required>
           </div>
           <div class="form-group">
-            <label data-i18n="phone_number">Phone Number</label>
-            <input type="tel" id="phone" class="form-control" required data-i18n="phone_number">
+            <label>رقم الهاتف</label>
+            <input type="tel" id="phone" class="form-control" required dir="ltr" style="text-align: left;">
           </div>
           <div class="form-group">
-            <label data-i18n="city">City</label>
-            <input type="text" id="city" class="form-control" required data-i18n="city">
+            <label>المدينة</label>
+            <input type="text" id="city" class="form-control" required>
           </div>
           <div class="form-group">
-            <label data-i18n="address">Delivery Address</label>
-            <textarea id="address" class="form-control" rows="3" required data-i18n="address"></textarea>
+            <label>عنوان التوصيل</label>
+            <textarea id="address" class="form-control" rows="3" required></textarea>
           </div>
           
-          <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.125rem; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;" data-i18n="place_order">Confirm Order (COD)</button>
+          <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.125rem; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">تأكيد الطلب (الدفع عند الاستلام)</button>
           
-          <div style="text-align: center; margin: 1rem 0; color: var(--text-muted);">OR</div>
+          <div style="text-align: center; margin: 1rem 0; color: var(--text-muted);">أو</div>
 
           <button type="button" class="btn btn-whatsapp" style="width: 100%; padding: 1rem; border-radius: 8px;" onclick="orderViaWhatsapp()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:0.5rem;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-            <span data-i18n="order_whatsapp">Order via WhatsApp</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:0.5rem;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <span>اطلب عبر واتساب</span>
           </button>
         </form>
       </div>
@@ -305,23 +351,22 @@
 
   <!-- Mobile sticky CTA -->
   <div class="mobile-cta">
-    <button class="btn btn-primary" style="flex: 1; border-radius: 8px; font-size: 0.95rem; padding: 0.75rem;" onclick="scrollToForm()" data-i18n="buy_now">Order Now</button>
-    <a href="tel:+212600000000" class="circle-btn circle-phone" style="width: 44px; height: 44px;" aria-label="Call Us">
+    <button class="btn btn-primary" style="flex: 1; border-radius: 8px; font-size: 0.95rem; padding: 0.75rem;" onclick="scrollToForm()">اطلب الآن</button>
+    <a href="tel:+212600000000" class="circle-btn circle-phone" style="width: 44px; height: 44px;" aria-label="اتصل بنا">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
     </a>
-    <a href="javascript:void(0)" onclick="orderViaWhatsapp()" class="circle-btn circle-whatsapp" style="width: 44px; height: 44px;" aria-label="WhatsApp">
+    <a href="javascript:void(0)" onclick="orderViaWhatsapp()" class="circle-btn circle-whatsapp" style="width: 44px; height: 44px;" aria-label="واتساب">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
     </a>
-    <a href="https://instagram.com/lamsajewelry" target="_blank" class="circle-btn circle-instagram" style="width: 44px; height: 44px;" aria-label="Instagram">
+    <a href="https://instagram.com/lamsajewelry" target="_blank" class="circle-btn circle-instagram" style="width: 44px; height: 44px;" aria-label="انستغرام">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
     </a>
   </div>
 
   <footer class="footer" style="padding: 2rem 0; text-align: center;">
-    <p style="color: #9CA3AF;">&copy; 2026 Lamsa Jewelry. All rights reserved.</p>
+    <p style="color: #9CA3AF;">&copy; 2026 مجوهرات لمسة. جميع الحقوق محفوظة.</p>
   </footer>
 
-  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

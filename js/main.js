@@ -58,15 +58,15 @@ function orderViaWhatsapp() {
   const address = document.getElementById('address').value;
   const color = document.getElementById('selected-color').value;
   
-  let message = `*New Order - Lamsa Jewelry* 🌙\n\n`;
-  message += `*Product:* Ayatul Kursi Cuff Bracelet\n`;
-  message += `*Color:* ${color}\n\n`;
-  message += `*Customer Details:*\n`;
-  message += `Name: ${name || 'Not provided'}\n`;
-  message += `Phone: ${phone || 'Not provided'}\n`;
-  message += `City: ${city || 'Not provided'}\n`;
-  message += `Address: ${address || 'Not provided'}\n\n`;
-  message += `*Total:* 299 MAD (Cash on Delivery)`;
+  let message = `*طلب جديد - مجوهرات لمسة* 🌙\n\n`;
+  message += `*المنتج:* سوار آية الكرسي الفاخر\n`;
+  message += `*اللون:* ${color}\n\n`;
+  message += `*معلومات الزبون:*\n`;
+  message += `الاسم: ${name || 'غير محدد'}\n`;
+  message += `الهاتف: ${phone || 'غير محدد'}\n`;
+  message += `المدينة: ${city || 'غير محدد'}\n`;
+  message += `العنوان: ${address || 'غير محدد'}\n\n`;
+  message += `*المجموع:* 299 درهم (الدفع عند الاستلام)`;
   
   const encodedMsg = encodeURIComponent(message);
   
