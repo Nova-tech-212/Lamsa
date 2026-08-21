@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* ==========================================================================
-     7. SLIDE-OUT CART (QUICK SHOP)
+     7. SLIDE-OUT CART & MOBILE TOUCH (QUICK SHOP)
      ========================================================================== */
   const openCartBtns = document.querySelectorAll('.open-quick-shop, #open-cart');
   const closeCartBtn = document.getElementById('close-cart');
@@ -150,6 +150,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   openCartBtns.forEach(btn => {
     btn.addEventListener('click', function(e) {
+      // Mobile touch logic: if clicking the image wrapper (not the button directly), toggle the hover state
+      if (window.innerWidth <= 768 && !e.target.classList.contains('quick-shop-btn')) {
+        e.preventDefault();
+        
+        // Remove active state from all others
+        document.querySelectorAll('.open-quick-shop').forEach(el => {
+          if (el !== this) el.classList.remove('touch-active');
+        });
+        
+        this.classList.toggle('touch-active');
+        return;
+      }
+      
       e.preventDefault();
       
       // If clicked from a product card, update cart data

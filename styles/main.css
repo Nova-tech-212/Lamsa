@@ -244,12 +244,24 @@ body.hovering .cursor-outline {
 }
 
 .brand-logo {
-  font-family: var(--font-english);
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--c-white);
   transition: color var(--t-fast);
+}
+.brand-logo .ar {
+  font-family: var(--font-secondary);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.brand-logo .fr {
+  font-family: var(--font-english);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  position: relative;
+  top: 2px;
 }
 
 .nav-toggle {
@@ -462,7 +474,20 @@ body.hovering .cursor-outline {
 
 @media (max-width: 768px) {
   .product-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .product-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .product-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
   }
 }
 
@@ -494,10 +519,12 @@ body.hovering .cursor-outline {
   transform: scale(1.05);
 }
 
-.product-image-wrapper:hover .product-img-main {
+.product-image-wrapper:hover .product-img-main,
+.product-image-wrapper.touch-active .product-img-main {
   opacity: 0;
 }
-.product-image-wrapper:hover .product-img-hover {
+.product-image-wrapper:hover .product-img-hover,
+.product-image-wrapper.touch-active .product-img-hover {
   opacity: 1;
   transform: scale(1);
 }
@@ -517,7 +544,8 @@ body.hovering .cursor-outline {
   z-index: 10;
 }
 
-.product-image-wrapper:hover .quick-shop-btn {
+.product-image-wrapper:hover .quick-shop-btn,
+.product-image-wrapper.touch-active .quick-shop-btn {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
