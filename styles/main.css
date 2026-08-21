@@ -8,8 +8,8 @@
   --text-main: #111827;
   --text-muted: #6B7280;
   --bg-main: #FFFFFF;
-  --bg-secondary: #F3F4F6;
-  --bg-dark: #111827;
+  --bg-secondary: #FFFFFF;
+  --bg-dark: #000000;
   
   /* Typography */
   --font-sans: 'Inter', sans-serif;
@@ -32,9 +32,6 @@
 body {
   font-family: var(--font-arabic-sans);
   background-color: var(--bg-main);
-  background-image: url('../assets/images/bg-pattern.png');
-  background-size: 400px;
-  background-attachment: fixed;
   color: var(--text-main);
   line-height: 1.6;
 }
@@ -73,13 +70,15 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
-  font-weight: 500;
-  border-radius: 4px;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  border-radius: 0;
   cursor: pointer;
   transition: var(--transition);
-  border: none;
+  border: 1px solid var(--primary-color);
   font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .btn-primary {
@@ -90,6 +89,10 @@ img {
 .btn-primary:hover {
   background-color: var(--primary-light);
 }
+
+.circle-phone { background-color: var(--primary-color); border-radius: 0; }
+.circle-whatsapp { background-color: var(--primary-color); border-radius: 0; }
+.circle-instagram { background-color: var(--primary-color); border-radius: 0; }
 
 .btn-outline {
   background-color: transparent;
@@ -103,13 +106,13 @@ img {
 }
 
 .btn-whatsapp {
-  background-color: #25D366;
+  background-color: var(--primary-color);
   color: white;
-  font-weight: 600;
 }
 
 .btn-whatsapp:hover {
-  background-color: #128C7E;
+  background-color: transparent;
+  color: var(--primary-color);
 }
 
 /* Announcement Bar */
@@ -278,10 +281,9 @@ img {
   position: relative;
   background: white;
   padding: 3rem 2rem 2rem;
-  border-radius: 16px;
+  border-radius: 0;
   text-align: right;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  border: 1px solid rgba(0,0,0,0.02);
+  border: 1px solid #E5E7EB;
   transition: transform 0.3s;
   overflow: hidden;
   z-index: 1;
@@ -499,8 +501,7 @@ img {
   .info-card {
     padding: 1.5rem !important;
     text-align: center;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08) !important;
+    border-radius: 0;
   }
   
   .info-card h1 {
