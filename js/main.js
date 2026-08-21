@@ -129,17 +129,20 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* ==========================================================================
-     7. SLIDE-OUT CART & MOBILE TOUCH (QUICK SHOP)
+     7. WISHLIST TOGGLE & SLIDE-OUT CART (HEADER)
      ========================================================================== */
-  const openCartBtns = document.querySelectorAll('.open-quick-shop, #open-cart');
+  const wishlistBtns = document.querySelectorAll('.btn-wishlist');
+  wishlistBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      this.classList.toggle('active');
+    });
+  });
+
+  const openCartBtn = document.getElementById('open-cart');
   const closeCartBtn = document.getElementById('close-cart');
   const cartOverlay = document.getElementById('cart-overlay');
   
-  // Cart DOM Elements to update dynamically
-  const cartImage = document.getElementById('cart-item-image');
-  const cartColorLabel = document.getElementById('cart-item-color-label');
-  const formColorInput = document.getElementById('selected-product-color');
-
   const toggleCart = (state) => {
     if (state) {
       document.body.classList.add('cart-open');
@@ -148,36 +151,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  openCartBtns.forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      // Mobile touch logic: if clicking the image wrapper (not the button directly), toggle the hover state
-      if (window.innerWidth <= 768 && !e.target.classList.contains('quick-shop-btn')) {
-        e.preventDefault();
-        
-        // Remove active state from all others
-        document.querySelectorAll('.open-quick-shop').forEach(el => {
-          if (el !== this) el.classList.remove('touch-active');
-        });
-        
-        this.classList.toggle('touch-active');
-        return;
-      }
-      
-      e.preventDefault();
-      
-      // If clicked from a product card, update cart data
-      if (this.hasAttribute('data-color')) {
-        const color = this.getAttribute('data-color');
-        const imgSrc = this.getAttribute('data-img');
-        
-        cartColorLabel.textContent = `الإصدار: ${color}`;
-        formColorInput.value = color;
-        cartImage.src = imgSrc;
-      }
-      
-      toggleCart(true);
-    });
-  });
+  if(openCartBtn) openCartBtn.addEventListener('click', (e) => { e.preventDefault(); toggleCart(true); });
+  if(closeCartBtn) closeCartBtn.addEventListener('click', () => toggleCart(false));
+  if(cartOverlay) cartOverlay.addEventListener('click', () => toggleCart(false));
 
   closeCartBtn.addEventListener('click', () => toggleCart(false));
   cartOverlay.addEventListener('click', () => toggleCart(false));

@@ -474,26 +474,18 @@ body.hovering .cursor-outline {
 
 @media (max-width: 768px) {
   .product-grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 1.5rem;
-    padding-bottom: 2rem;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .product-grid::-webkit-scrollbar {
-    display: none;
-  }
-  .product-card {
-    flex: 0 0 85%;
-    scroll-snap-align: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
   }
 }
 
 .product-card {
   display: flex;
   flex-direction: column;
+  background: var(--c-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .product-image-wrapper {
@@ -502,7 +494,46 @@ body.hovering .cursor-outline {
   aspect-ratio: 4/5;
   background-color: var(--c-offwhite);
   overflow: hidden;
-  margin-bottom: 1.5rem;
+}
+
+.badge-bestseller {
+  position: absolute;
+  top: 10px;
+  left: 10px; /* or right in RTL */
+  background: #ffecf0;
+  color: #ff4d6d;
+  font-size: 0.75rem;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.btn-wishlist {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 35px;
+  height: 35px;
+  background: var(--c-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 2;
+  color: var(--c-grey-mid);
+  transition: color 0.2s, transform 0.2s;
+}
+.btn-wishlist:hover, .btn-wishlist.active {
+  color: #ff4d6d;
+}
+.btn-wishlist svg {
+  width: 18px; height: 18px;
+}
+.btn-wishlist.active svg {
+  fill: #ff4d6d;
 }
 
 .product-image-wrapper img {
@@ -511,57 +542,62 @@ body.hovering .cursor-outline {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity var(--t-med), transform var(--t-slow);
-}
-
-.product-img-hover {
-  opacity: 0;
-  transform: scale(1.05);
-}
-
-.product-image-wrapper:hover .product-img-main,
-.product-image-wrapper.touch-active .product-img-main {
-  opacity: 0;
-}
-.product-image-wrapper:hover .product-img-hover,
-.product-image-wrapper.touch-active .product-img-hover {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.quick-shop-btn {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: var(--c-white);
-  color: var(--c-black);
-  padding: 0.8rem 2rem;
-  border-radius: 30px;
-  font-weight: 600;
-  opacity: 0;
-  transition: all var(--t-med);
-  z-index: 10;
-}
-
-.product-image-wrapper:hover .quick-shop-btn,
-.product-image-wrapper.touch-active .quick-shop-btn {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
 }
 
 .product-info {
-  text-align: center;
+  padding: 1.2rem;
+  text-align: right;
 }
 .product-name {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  font-family: var(--font-english);
   margin-bottom: 0.5rem;
+  color: var(--c-black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.price-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
 }
 .product-price {
   font-family: var(--font-english);
-  color: var(--c-grey-mid);
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--c-black);
 }
+.old-price {
+  font-family: var(--font-english);
+  font-size: 0.9rem;
+  color: var(--c-grey-mid);
+  text-decoration: line-through;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 8px;
+  color: var(--c-white);
+  transition: transform var(--t-fast);
+}
+.action-btn:hover {
+  transform: translateY(-2px);
+}
+.action-btn.whatsapp { background: #25D366; }
+.action-btn.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.action-btn.phone { background: var(--c-grey-dark); }
 
 /* ==========================================================================
    CRAFTSMANSHIP (STORYTELLING)
