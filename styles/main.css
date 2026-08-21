@@ -487,6 +487,23 @@ img {
   
   .info-card {
     padding: 1.5rem !important;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08) !important;
+  }
+  
+  .info-card h1 {
+    font-size: 2.2rem !important;
+  }
+  
+  .price-block {
+    justify-content: center;
+    font-size: 2.25rem !important;
+  }
+  
+  /* Trust badges centered on mobile */
+  .trust-badges {
+    justify-content: center;
   }
 
   /* 2-column layout for products on mobile */
@@ -507,4 +524,14 @@ img {
     padding: 0.6rem 1rem;
     font-size: 0.9rem;
   }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); }
+  70% { box-shadow: 0 0 0 15px rgba(0, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+}
+
+.btn-pulse {
+  animation: pulseGlow 2s infinite;
 }
