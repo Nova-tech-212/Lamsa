@@ -138,12 +138,24 @@
       margin-top: 2rem;
     }
     
-    .gallery-grid img {
+    .gallery-grid img, .lifestyle-grid img {
       width: 100%;
       border-radius: 8px;
       aspect-ratio: 1;
       object-fit: cover;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    
+    .gallery-grid img:hover, .lifestyle-grid img:hover {
+      transform: scale(1.03);
+    }
+
+    .lifestyle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
     }
 
     .video-section {
@@ -191,6 +203,9 @@
       }
       .gallery-grid {
         grid-template-columns: 1fr;
+      }
+      .lifestyle-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
@@ -314,12 +329,22 @@
   <!-- Photo Gallery Section -->
   <section class="section" style="padding-top: 0;">
     <div class="container">
-      <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem;">اكتشف جمال التفاصيل</h2>
-      <div class="gallery-grid">
+      <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem; color: var(--primary-color);">اكتشف جمال التفاصيل</h2>
+      <div class="gallery-grid" style="margin-bottom: 4rem;">
         <img src="assets/images/IMG_5760.AVIF" alt="سوار ذهبي">
         <img src="assets/images/IMG_5761.AVIF" alt="سوار فضي">
         <img src="assets/images/IMG_5762.AVIF" alt="سوار ذهبي وردي">
         <img src="assets/images/IMG_5763.AVIF" alt="سوار أسود">
+      </div>
+
+      <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem; color: var(--primary-color);">السوار على الطبيعة</h2>
+      <div class="lifestyle-grid">
+        <img src="assets/images/IMG_5765.WEBP" alt="السوار على الطبيعة">
+        <img src="assets/images/IMG_5770.WEBP" alt="السوار على الطبيعة">
+        <img src="assets/images/IMG_5771.WEBP" alt="السوار على الطبيعة">
+        <img src="assets/images/IMG_5772.WEBP" alt="السوار على الطبيعة">
+        <img src="assets/images/IMG_5773.WEBP" alt="السوار على الطبيعة">
+        <img src="assets/images/IMG_5774.WEBP" alt="السوار على الطبيعة">
       </div>
     </div>
   </section>
