@@ -66,7 +66,7 @@ function orderViaWhatsapp() {
   const encodedMsg = encodeURIComponent(message);
   
   // Replace with actual business WhatsApp number
-  const whatsappNumber = "212600000000"; 
+  const whatsappNumber = "212694350619"; 
   window.open(`https://wa.me/${whatsappNumber}?text=${encodedMsg}`, '_blank');
 }
 
